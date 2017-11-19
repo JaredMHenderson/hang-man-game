@@ -2,96 +2,67 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
-    <link rel="stylesheet" type="text/javascript" href="./assets/javascript/game.js">
-    <!-- jQuery library -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <!-- Latest compiled JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <title>NFL Hangman</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
-    <scriptsrc="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-    crossorigin="anonymous"></script>
+    <!-- Latest compiled and minified CSS & JS -->
+    <!-- <link rel="stylesheet" media="screen" href="//netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="//code.jquery.com/jquery.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
 
-    <title>NFL Hang Man</title>
+
+
 </head>
 <body>
-<!--
-    Psuedo Code-
-    1.Computer selets a string from array and displays blank lines with number of characters and spaces
-    2.Takes key strokes from user, if key stroke matches any character the blank line is replace by the letter
-      if key strong does not match, body part shows up on the hangmans noose and wrong character is displayed
-      below the window.
-    3.
-    4.
-
- -->
-<div class="container-fluid">
-    <div class="jumbotron" style="text-align: center;">
+    <div class="container">
+        <div class="jumbotron">
         <h1>NFL Hangman</h1>
-        <button type="button" class="btn btn-primary" id="clickToStart">Press Any Key To Begin!</button>
-
+        <h2>Guess the NFL Team!</h2>
+        <h3>Press Any Letter Key To Start!</h3>
+        <p>P.S. This will count as your first guess</p>
+        </div>
     </div>
 
-    <div class="word-display" id="displayWord" >
-
-
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">Word to guess</h3>
+        </div>
+        <div class="panel-body">
+           <h2 id="wordToGuess">"_ _ _ _ _ _ _"</h2>
+        </div>
     </div>
 
-</div>
-<script type="text/javascript">
+    <div class="panel panel-default">
+        <div class="panel-body">
+            Wrong Guesses: <span id="wrongGuesses"></span>
+        </div>
+    </div>
 
-    $(document).ready(function(){
+    <div class="panel panel-default">
+        <div class="panel-body">
+            Guesses Left: <span id="numGuesses"></span>
+        </div>
+    </div>
 
+    <div class="panel panel-default">
+            <div class="panel-body">
+                Wins: <span id="winCounter"></span>
+            </div>
+        </div>
 
-    var teams = ["denver broncos", "new england patriots", "houston texans", "dallas cowboys", "oakland raiders",
-             "philidelphia eagles", "new york giants", "seattle seahawks", "pittsburgh steelers", "green bay packers",
-             "san fransisco 49ers", "chicago bears", "minnesota vikings", "carolina panthers", "cleveland browns", "los angeles rams",
-             "kansas city chiefs", "washington redskins", "atlanta falcons", "baltimore ravens", "detroit lions", "new york jets",
-             "los angeles chargers", "arizona cardinals", "buffalo bills", "new orleans saints", "miami dolphins", "jacksonville jaguars",
-             "cincinnati bengals", "tampa bay buccaneers", "indianapolis colts", "tennessee titans"];
+    <div class="panel panel-default">
+            <div class="panel-body">
+                Losses:<span id="lossCounter"></span>
+            </div>
+        </div>
 
-    var teamToGuess = Math.floor(Math.random() * teams.length);
+    <!-- Link to javascript -->
 
-    var answerArray = [];
-
-    var remainingLetters = teamToGuess.length;
-
-    var answerString = '';
-
-    var randomTeam = teams[teamToGuess];
-
-
-    for (var i = 0; i < randomTeam.length; i++) {
-        if(randomTeam[i] != ' ') {
-            answerString += '_ ';
-        } else {
-            answerString += '&nbsp;&nbsp;';
-        }
-    };
-        // alert(randomTeam);
-        // alert(answerString);
+    <script src="./Assets/javascript/game.js">
 
 
-    $("#clickToStart").click(function() {
-        // console.log(answerString);
-        // console.log(randomTeam);
-        $("#displayWord").html(answerString);
-
-    });
-
-
-    $(document).keydown(function(e) {
-        for(var i = 0; i < randomTeam.lenght; i++) {
-            if(userGuess === randomTeam[i]){
-                answerString[i] = userGuess;
-            }
-        };
-    });
-
-});
-</script>
+    </script>
 
 </body>
 </html>
